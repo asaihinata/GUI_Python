@@ -1,0 +1,45 @@
+"""
+住所から郵便番号を調べるテスト
+
+ExcelAPI使用
+
+ExcelAPIの詳細
+https://excelapi.org/docs/post/zipcode/
+"""
+
+import requests
+
+from sgg import Input, guis
+
+
+def test_main():
+    def ytoz():
+        zyuusyo: Input = win.get("zyuusyo")
+        Zget = zyuusyo.get_text()
+        yuubin: Input = win.get("yuubin")
+        response = requests.get(f"https://api.excelapi.org/post/zipcode?address={Zget}")
+        getyubinz = response.text
+        if getyubinz == "":
+            yubin_txt = f"{Zget}には郵便番号が存在しません"
+        else:
+            yubin_txt = response.text
+        yuubin.set_text(yubin_txt)
+
+    layout = [
+        [guis.Label(text="住所から郵便番号")],
+        [
+            guis.Label(text="住所"),
+            guis.Input(text="東京都千代田区", key="zyuusyo"),
+            guis.Buttons(text="変換", function=ytoz),
+        ],
+        [
+            guis.Label(text="郵便番号"),
+            guis.Input(text="1000000", key="yuubin"),
+        ],
+    ]
+    win = guis.window(layout=layout, maxmine=True, scroll=True)
+    win.run()
+
+
+if __name__ == "__main__":
+    test_main()

@@ -1,0 +1,307 @@
+GUI_Python
+ ├── MANIFEST.in
+ ├── README.md
+ ├── docs
+ │   ├── css
+ │   │   └── style.css
+ │   ├── dev
+ │   │   ├── development
+ │   │   │   ├── code_snippets_write.md
+ │   │   │   ├── markdown
+ │   │   │   │   ├── howto_md.md
+ │   │   │   │   └── howto_md_math.md
+ │   │   │   ├── naming_conventions.md
+ │   │   │   ├── py_mustache_custom_docstring_templates.md
+ │   │   │   └── regex.md
+ │   │   ├── img
+ │   │   │   └── cursor
+ │   │   │       ├── cursor1.png
+ │   │   │       ├── cursor10.png
+ │   │   │       ├── cursor11.png
+ │   │   │       ├── cursor12.png
+ │   │   │       ├── cursor13.png
+ │   │   │       ├── cursor14.png
+ │   │   │       ├── cursor15.png
+ │   │   │       ├── cursor16.png
+ │   │   │       ├── cursor17.png
+ │   │   │       ├── cursor18.png
+ │   │   │       ├── cursor19.png
+ │   │   │       ├── cursor2.png
+ │   │   │       ├── cursor20.png
+ │   │   │       ├── cursor21.png
+ │   │   │       ├── cursor22.png
+ │   │   │       ├── cursor23.png
+ │   │   │       ├── cursor24.png
+ │   │   │       ├── cursor25.png
+ │   │   │       ├── cursor26.png
+ │   │   │       ├── cursor27.png
+ │   │   │       ├── cursor28.png
+ │   │   │       ├── cursor29.png
+ │   │   │       ├── cursor3.png
+ │   │   │       ├── cursor30.png
+ │   │   │       ├── cursor31.png
+ │   │   │       ├── cursor32.png
+ │   │   │       ├── cursor33.png
+ │   │   │       ├── cursor34.png
+ │   │   │       ├── cursor35.png
+ │   │   │       ├── cursor36.png
+ │   │   │       ├── cursor37.png
+ │   │   │       ├── cursor38.png
+ │   │   │       ├── cursor39.png
+ │   │   │       ├── cursor4.png
+ │   │   │       ├── cursor40.png
+ │   │   │       ├── cursor41.png
+ │   │   │       ├── cursor42.png
+ │   │   │       ├── cursor43.png
+ │   │   │       ├── cursor44.png
+ │   │   │       ├── cursor45.png
+ │   │   │       ├── cursor46.png
+ │   │   │       ├── cursor47.png
+ │   │   │       ├── cursor48.png
+ │   │   │       ├── cursor49.png
+ │   │   │       ├── cursor5.png
+ │   │   │       ├── cursor50.png
+ │   │   │       ├── cursor51.png
+ │   │   │       ├── cursor52.png
+ │   │   │       ├── cursor53.png
+ │   │   │       ├── cursor54.png
+ │   │   │       ├── cursor55.png
+ │   │   │       ├── cursor56.png
+ │   │   │       ├── cursor57.png
+ │   │   │       ├── cursor58.png
+ │   │   │       ├── cursor59.png
+ │   │   │       ├── cursor6.png
+ │   │   │       ├── cursor60.png
+ │   │   │       ├── cursor61.png
+ │   │   │       ├── cursor62.png
+ │   │   │       ├── cursor63.png
+ │   │   │       ├── cursor64.png
+ │   │   │       ├── cursor65.png
+ │   │   │       ├── cursor66.png
+ │   │   │       ├── cursor67.png
+ │   │   │       ├── cursor68.png
+ │   │   │       ├── cursor69.png
+ │   │   │       ├── cursor7.png
+ │   │   │       ├── cursor70.png
+ │   │   │       ├── cursor71.png
+ │   │   │       ├── cursor72.png
+ │   │   │       ├── cursor73.png
+ │   │   │       ├── cursor74.png
+ │   │   │       ├── cursor75.png
+ │   │   │       ├── cursor76.png
+ │   │   │       ├── cursor77.png
+ │   │   │       ├── cursor8.png
+ │   │   │       └── cursor9.png
+ │   │   ├── numpy
+ │   │   │   ├── numpy_dtype.md
+ │   │   │   ├── numpy_dtype_kind.md
+ │   │   │   ├── numpy_glossary.md
+ │   │   │   ├── numpy_routines.md
+ │   │   │   └── numpy_special_method.md
+ │   │   └── other
+ │   │       ├── color_table.md
+ │   │       ├── cursor.md
+ │   │       ├── format_datetime.md
+ │   │       └── youbi.md
+ │   ├── requirements.txt
+ │   └── templates
+ │       └── py_document_text.mustache
+ ├── src
+ │   ├── sgg
+ │   │   ├── __init__.py
+ │   │   ├── __init__.pyi
+ │   │   ├── _install.py
+ │   │   ├── _list.py
+ │   │   ├── _typing
+ │   │   │   ├── __init__.py
+ │   │   │   ├── _array_date_unit.py
+ │   │   │   ├── _array_dtype.py
+ │   │   │   ├── _arraylike.py
+ │   │   │   ├── _kwarg
+ │   │   │   │   ├── _graph.py
+ │   │   │   │   ├── _popup.py
+ │   │   │   │   └── _widget.py
+ │   │   │   ├── _scalar.py
+ │   │   │   ├── _timezone.py
+ │   │   │   └── _widget.py
+ │   │   ├── color
+ │   │   │   ├── __init__.py
+ │   │   │   ├── __init__.pyi
+ │   │   │   └── _color.py
+ │   │   ├── constants.py
+ │   │   ├── dev
+ │   │   │   ├── __init__.py
+ │   │   │   ├── _set_obj
+ │   │   │   │   ├── __init__.py
+ │   │   │   │   └── __init__.pyi
+ │   │   │   ├── _set_obj_graph
+ │   │   │   │   └── __init__.py
+ │   │   │   ├── array
+ │   │   │   │   ├── __init__.py
+ │   │   │   │   ├── _arrayshapemixin.py
+ │   │   │   │   ├── _arrayshapemixin.pyi
+ │   │   │   │   ├── _arrcheck.py
+ │   │   │   │   ├── _dayunit.py
+ │   │   │   │   └── _timeunit.py
+ │   │   │   ├── common
+ │   │   │   │   ├── _darray.py
+ │   │   │   │   └── _dnumber.py
+ │   │   │   ├── graph
+ │   │   │   │   ├── __init__.py
+ │   │   │   │   ├── threearray
+ │   │   │   │   │   ├── __init__.py
+ │   │   │   │   │   └── __init__.pyi
+ │   │   │   │   └── twoarray
+ │   │   │   │       ├── __init__.py
+ │   │   │   │       └── __init__.pyi
+ │   │   │   ├── photo
+ │   │   │   │   ├── __init__.py
+ │   │   │   │   └── __init__.pyi
+ │   │   │   └── urls
+ │   │   │       ├── __init__.py
+ │   │   │       └── __init__.pyi
+ │   │   ├── dialogs
+ │   │   │   ├── __init__.py
+ │   │   │   ├── dialog
+ │   │   │   │   ├── __init__.py
+ │   │   │   │   ├── __init__.pyi
+ │   │   │   │   ├── chooser.py
+ │   │   │   │   ├── directory.py
+ │   │   │   │   ├── open.py
+ │   │   │   │   └── saveas.py
+ │   │   │   ├── maindialog
+ │   │   │   │   ├── __init__.py
+ │   │   │   │   ├── __init__.pyi
+ │   │   │   │   ├── _dialog.py
+ │   │   │   │   ├── _show.py
+ │   │   │   │   ├── dialog.py
+ │   │   │   │   └── message.py
+ │   │   │   └── popups
+ │   │   │       ├── __init__.py
+ │   │   │       ├── error
+ │   │   │       │   ├── __init__.py
+ │   │   │       │   └── __init__.pyi
+ │   │   │       ├── info
+ │   │   │       │   ├── __init__.py
+ │   │   │       │   └── __init__.pyi
+ │   │   │       ├── question
+ │   │   │       │   ├── __init__.py
+ │   │   │       │   ├── __init__.pyi
+ │   │   │       │   ├── askokcancel.py
+ │   │   │       │   ├── askquestion.py
+ │   │   │       │   ├── askretrycancel.py
+ │   │   │       │   ├── askyesno.py
+ │   │   │       │   └── askyesnocancel.py
+ │   │   │       └── warning
+ │   │   │           ├── __init__.py
+ │   │   │           └── __init__.pyi
+ │   │   ├── exceptions
+ │   │   │   └── __init__.py
+ │   │   ├── font
+ │   │   │   ├── __init__.py
+ │   │   │   └── __init__.pyi
+ │   │   ├── nparray
+ │   │   │   ├── __init__.py
+ │   │   │   ├── npbool
+ │   │   │   │   ├── __init__.py
+ │   │   │   │   └── __init__.pyi
+ │   │   │   ├── npdate
+ │   │   │   │   ├── __init__.py
+ │   │   │   │   └── __init__.pyi
+ │   │   │   ├── npnumber
+ │   │   │   │   ├── __init__.py
+ │   │   │   │   └── __init__.pyi
+ │   │   │   ├── npstr
+ │   │   │   │   ├── __init__.py
+ │   │   │   │   └── __init__.pyi
+ │   │   │   └── nptimedelta
+ │   │   │       ├── __init__.py
+ │   │   │       └── __init__.pyi
+ │   │   ├── testing
+ │   │   │   ├── _cursor.py
+ │   │   │   ├── _dtype.py
+ │   │   │   ├── _timezone.py
+ │   │   │   └── _widget.py
+ │   │   ├── version.py
+ │   │   └── widget
+ │   │       └── base
+ │   │           ├── __init__.py
+ │   │           ├── common
+ │   │           │   ├── __init__.py
+ │   │           │   ├── _widget_common.py
+ │   │           │   ├── _widget_common.pyi
+ │   │           │   └── _widget_obj.py
+ │   │           └── general
+ │   │               ├── element
+ │   │               │   ├── __init__.py
+ │   │               │   └── __init__.pyi
+ │   │               └── telement
+ │   │                   ├── __init__.py
+ │   │                   └── __init__.pyi
+ │   └── test
+ │       ├── data
+ │       │   ├── img
+ │       │   │   └── Lenna.png
+ │       │   └── index.html
+ │       ├── test_all.py
+ │       ├── test_graph
+ │       │   ├── application
+ │       │   │   ├── data
+ │       │   │   │   ├── japan_population.csv
+ │       │   │   │   └── school_test_demo_data.csv
+ │       │   │   ├── test_graph_schooldata.py
+ │       │   │   └── test_japanese.py
+ │       │   ├── basic
+ │       │   │   ├── test_bargraph.py
+ │       │   │   ├── test_barhgraph.py
+ │       │   │   ├── test_barpolar.py
+ │       │   │   ├── test_boxplot.py
+ │       │   │   ├── test_dscatter.py
+ │       │   │   ├── test_ecdf.py
+ │       │   │   ├── test_errorbar.py
+ │       │   │   ├── test_errorpolar.py
+ │       │   │   ├── test_eventplot.py
+ │       │   │   ├── test_eventpolar.py
+ │       │   │   ├── test_funne.py
+ │       │   │   ├── test_hatplot.py
+ │       │   │   ├── test_hexbin.py
+ │       │   │   ├── test_hist.py
+ │       │   │   ├── test_hist2d.py
+ │       │   │   ├── test_linefill.py
+ │       │   │   ├── test_linegraph.py
+ │       │   │   ├── test_linepolar.py
+ │       │   │   ├── test_pie.py
+ │       │   │   ├── test_radarfill.py
+ │       │   │   ├── test_radarline.py
+ │       │   │   ├── test_scatter.py
+ │       │   │   ├── test_scatterpolar.py
+ │       │   │   ├── test_stack.py
+ │       │   │   ├── test_stacked.py
+ │       │   │   ├── test_stackedh.py
+ │       │   │   ├── test_stem.py
+ │       │   │   ├── test_stempolar.py
+ │       │   │   ├── test_step.py
+ │       │   │   ├── test_violinplot.py
+ │       │   │   ├── test_waterfall.py
+ │       │   │   └── test_waterfallh.py
+ │       │   └── style
+ │       │       ├── test_linestyles.py
+ │       │       └── test_marker.py
+ │       └── test_widget
+ │           ├── application
+ │           │   ├── test_getaddress1.py
+ │           │   └── test_getaddress2.py
+ │           └── basic
+ │               ├── test_all.py
+ │               └── test_cursor.py
+ ├── tree.txt
+ ├── .crossnote
+ │   ├── config.js
+ │   ├── head.html
+ │   ├── parser.js
+ │   └── style.less
+ ├── .editorconfig
+ ├── .gitattributes
+ └── .gitignore
+ファイル数:244
+フォルダ数:60

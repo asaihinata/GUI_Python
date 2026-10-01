@@ -1,0 +1,150 @@
+import numpy as np
+
+from sgg import Errorpolar, guis
+
+rng = np.random.default_rng(seed=42)
+
+
+def test_main():
+
+    def updates():
+        radomdata = rng.integers(0, 3, 5)
+        print(f"{radomdata=}")
+        errorpolar: Errorpolar = win.get("errorpolar")
+        errorpolar.update(y=radomdata)
+
+    errorpolarx = np.arange(2, 12, 2)
+    errorpolary = rng.integers(0, 3, 5)
+    polarerr = rng.integers(2, size=5) + 0.5
+    polarxerr = rng.integers(2, size=5) + 0.5
+    polaryerr = rng.integers(2, size=5) + 0.5
+    print(f"{errorpolarx=}")
+    print(f"{errorpolary=}")
+    print(f"{polarerr=}")
+    print(f"{polarxerr=}")
+    print(f"{polaryerr=}")
+    layout = [
+        [
+            guis.Errorpolar(
+                x=errorpolarx,
+                y=errorpolary,
+                err=polarerr,
+                title="極軸エラーグラフの基本1",
+            ),
+            guis.Errorpolar(
+                x=errorpolarx,
+                y=errorpolary,
+                xerr=polarxerr,
+                yerr=polaryerr,
+                title="極軸エラーグラフの基本2",
+            ),
+        ],
+        [
+            guis.Errorpolar(
+                x=errorpolarx,
+                y=errorpolary,
+                err=polarerr,
+                title="xの上向きの誤差に矢印を付ける",
+                xuplims=True,
+            ),
+            guis.Errorpolar(
+                x=errorpolarx,
+                y=errorpolary,
+                err=polarerr,
+                title="xの下向きの誤差に矢印を付ける",
+                xlolims=True,
+            ),
+        ],
+        [
+            guis.Errorpolar(
+                x=errorpolarx,
+                y=errorpolary,
+                err=polarerr,
+                title="yの上向きの誤差に矢印を付ける",
+                yuplims=True,
+            ),
+            guis.Errorpolar(
+                x=errorpolarx,
+                y=errorpolary,
+                err=polarerr,
+                title="yの下向きの誤差に矢印を付ける",
+                ylolims=True,
+            ),
+        ],
+        [
+            guis.Errorpolar(
+                x=errorpolarx,
+                y=errorpolary,
+                err=polarerr,
+                title="データ点とデータ点を結ぶ線を指定する",
+                linestyle="dashdot",
+            ),
+            guis.Errorpolar(
+                x=errorpolarx,
+                y=errorpolary,
+                err=polarerr,
+                title="データの点の種類を変更する",
+                marker="s",
+            ),
+        ],
+        [
+            guis.Errorpolar(
+                x=errorpolarx,
+                y=errorpolary,
+                err=polarerr,
+                title="キャップの長さを指定する",
+                capsize=3,
+            ),
+            guis.Errorpolar(
+                x=errorpolarx,
+                y=errorpolary,
+                err=polarerr,
+                title="キャップの幅を指定する",
+                capthick=20,
+                capsize=3,
+            ),
+        ],
+        [
+            guis.Errorpolar(
+                x=errorpolarx,
+                y=errorpolary,
+                err=polarerr,
+                title="極軸エラーグラフを表示する頻度を変える",
+                errorevery=3,
+            ),
+            guis.Errorpolar(
+                x=errorpolarx,
+                y=errorpolary,
+                err=polarerr,
+                title="極軸エラーグラフを表示する頻度を指定する。",
+                errorevery=[2, 4],
+            ),
+        ],
+        [
+            guis.Errorpolar(
+                x=errorpolarx,
+                y=errorpolary,
+                err=polarerr,
+                title="極軸エラーグラフの線の幅を変更する",
+                linewidth=2,
+            )
+        ],
+        [
+            guis.Errorpolar(
+                x=errorpolarx,
+                y=errorpolary,
+                err=polarerr,
+                title="グラフを更新する",
+                key="errorpolar",
+            ),
+            guis.Buttons(text="更新ボタン", function=updates),
+        ],
+    ]
+    win = guis.window(
+        title="極軸エラーグラフ(test)", layout=layout, scroll=True, maxmine=True
+    )
+    win.run()
+
+
+if __name__ == "__main__":
+    test_main()

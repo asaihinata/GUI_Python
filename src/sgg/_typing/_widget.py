@@ -1,0 +1,194 @@
+from typing import Literal, TypeVar, Union
+
+import numpy as np
+
+__all__ = [
+    "_Padxy",
+    "_Padding",
+    "TYPE_ANCHOR",
+    "TYPE_RELIEF",
+    "ColorListType",
+    "ColorType",
+    "ColorTypeN",
+    "CURSOR_TYPE",
+    "GetList",
+    "Type_Marker",
+    "Type_Solid",
+    "TypeArray2LikeNS",
+    "TypeArray2LikeNumber",
+    "TypeArray2LikeString",
+    "TypeArrayLikeNS",
+    "TypeArrayLikeNumber",
+    "TypeArrayLikeString",
+    "TypeArraysLikeNS",
+    "TypeArraysLikeNumber",
+    "TypeArraysLikeString",
+    "Typetuple_float64",
+]
+# 色
+type ColorType = str
+type ColorTypeN = str | None
+type ColorListType = ColorTypeN | tuple[ColorType, ...]
+
+# グラフ
+# 数値
+_ArrayLikeNumber = TypeVar("_ArrayLikeNumber", bound=Union[np.number, int, float])
+type TypeArrayLikeNumber = np.ndarray[tuple[int], np.dtype[_ArrayLikeNumber]]
+type TypeArray2LikeNumber = np.ndarray[tuple[int, int], np.dtype[_ArrayLikeNumber]]
+type TypeArraysLikeNumber = np.ndarray[tuple[int, ...], np.dtype[_ArrayLikeNumber]]
+# 文字列
+_ArrayLikeString = TypeVar("_ArrayLikeString", bound=Union[np.str_, str])
+type TypeArrayLikeString = np.ndarray[tuple[int], np.dtype[_ArrayLikeString]]
+type TypeArray2LikeString = np.ndarray[tuple[int, int], np.dtype[_ArrayLikeString]]
+type TypeArraysLikeString = np.ndarray[tuple[int, ...], np.dtype[_ArrayLikeString]]
+# 数値 + 文字列
+_ArrayLikeNS = TypeVar(
+    "_ArrayLikeNS", bound=Union[np.generic, int, float, np.str_, str]
+)
+type TypeArrayLikeNS = np.ndarray[tuple[int], np.dtype[_ArrayLikeNS]]
+type TypeArray2LikeNS = np.ndarray[tuple[int, int], np.dtype[_ArrayLikeNS]]
+type TypeArraysLikeNS = np.ndarray[tuple[int, ...], np.dtype[_ArrayLikeNS]]
+type Typetuple_float64 = tuple[np.float64, np.float64]
+# 配列
+type GetList = np.ndarray
+# その他
+type _Padxy = int | float | str | None
+type _Padding = (
+    float
+    | int
+    | str
+    | tuple[float | int | str]
+    | tuple[float | int | str, float | int | str]
+    | tuple[float | int | str, float | int | str, float | int | str]
+    | tuple[float | int | str, float | int | str, float | int | str, float | int | str]
+    | list[float | int | str]
+    | range
+)
+type TYPE_ANCHOR = Literal["nw", "n", "ne", "w", "center", "e", "sw", "s", "se"]
+type TYPE_RELIEF = Literal["raised", "sunken", "flat", "ridge", "solid", "groove"]
+type Type_Solid = Literal["-", "--", "-.", ":", "None", " ", ""]
+type Type_Marker = Literal[
+    ".",
+    ",",
+    "o",
+    "v",
+    "^",
+    "<",
+    ">",
+    "1",
+    "2",
+    "3",
+    "4",
+    "8",
+    "s",
+    "p",
+    "*",
+    "h",
+    "H",
+    "+",
+    "x",
+    "D",
+    "d",
+    "|",
+    "_",
+    "P",
+    "X",
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    "None",
+    "none",
+    " ",
+    "",
+]
+type CURSOR_TYPE = Literal[
+    "arrow",
+    "man",
+    "based_arrow_down",
+    "middlebutton",
+    "based_arrow_up",
+    "mouse",
+    "boat",
+    "pencil",
+    "bogosity",
+    "pirate",
+    "bottom_left_corner",
+    "plus",
+    "bottom_right_corner",
+    "question_arrow",
+    "bottom_side",
+    "right_ptr",
+    "bottom_tee",
+    "right_side",
+    "box_spiral",
+    "right_tee",
+    "center_ptr",
+    "rightbutton",
+    "circle",
+    "rtl_logo",
+    "clock",
+    "sailboat",
+    "coffee_mug",
+    "sb_down_arrow",
+    "cross",
+    "sb_h_double_arrow",
+    "cross_reverse",
+    "sb_left_arrow",
+    "crosshair",
+    "sb_right_arrow",
+    "diamond_cross",
+    "sb_up_arrow",
+    "dot",
+    "sb_v_double_arrow",
+    "dotbox",
+    "shuttle",
+    "double_arrow",
+    "sizing",
+    "draft_large",
+    "spider",
+    "draft_small",
+    "spraycan",
+    "draped_box",
+    "star",
+    "exchange",
+    "target",
+    "fleur",
+    "tcross",
+    "gobbler",
+    "top_left_arrow",
+    "gumby",
+    "top_left_corner",
+    "hand1",
+    "top_right_corner",
+    "hand2",
+    "top_side",
+    "heart",
+    "top_tee",
+    "icon",
+    "trek",
+    "iron_cross",
+    "ul_angle",
+    "left_ptr",
+    "umbrella",
+    "left_side",
+    "ur_angle",
+    "left_tee",
+    "watch",
+    "leftbutton",
+    "xterm",
+    "ll_angle",
+    "X_cursor",
+    "lr_angle",
+    "none",
+    "None",
+    "",
+] | None

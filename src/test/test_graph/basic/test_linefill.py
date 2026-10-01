@@ -1,0 +1,60 @@
+import numpy as np
+
+from sgg import Linefill, guis
+
+rng = np.random.default_rng(seed=42)
+
+
+def test_main():
+
+    def updates():
+        radomdata1 = 3 + 4 * linefillx / 8 + rng.uniform(0.0, 0.5, len(linefillx))
+        radomdata2 = 1 + 2 * linefillx / 8 + rng.uniform(0.0, 0.5, len(linefillx))
+        print(f"{radomdata1=}")
+        print(f"{radomdata2=}")
+        linefill: Linefill = win.get("linefill")
+        linefill.update(ymax=radomdata1, ymin=radomdata2)
+
+    linefillx = np.linspace(0, 8, 16)
+    linefillymax = 3 + 4 * linefillx / 8 + rng.uniform(0.0, 0.5, len(linefillx))
+    linefillymin = 1 + 2 * linefillx / 8 + rng.uniform(0.0, 0.5, len(linefillx))
+    print(f"{linefillx=}")
+    print(f"{linefillymax=}")
+    print(f"{linefillymin=}")
+    layout = [
+        [
+            guis.Linefill(
+                x=linefillx,
+                ymax=linefillymax,
+                ymin=linefillymin,
+                title="積上げ面グラフの基本",
+                xlabel="x軸のラベル",
+                ylabel="y軸のラベル",
+            ),
+            guis.Linefill(
+                x=linefillx,
+                ymax=linefillymax,
+                ymin=linefillymin,
+                title="中心の線の太さを変更する",
+                centerlinewidth=5,
+            ),
+        ],
+        [
+            guis.Linefill(
+                x=linefillx,
+                ymax=linefillymax,
+                ymin=linefillymin,
+                title="グラフを更新する",
+                key="linefill",
+            ),
+            guis.Buttons(text="更新ボタン", function=updates),
+        ],
+    ]
+    win = guis.window(
+        title="積上げ面グラフ(test)", layout=layout, scroll=True, maxmine=True
+    )
+    win.run()
+
+
+if __name__ == "__main__":
+    test_main()

@@ -1,0 +1,78 @@
+from io import BytesIO
+from pathlib import Path
+from typing import IO
+
+from PIL._typing import StrOrBytesPath
+from PIL.ImageFile import ImageFile
+
+__all__ = ["Img_byte", "Img_path"]
+
+class Img_conversion:
+    def __init__(self, data: StrOrBytesPath | IO[bytes]): ...
+    @property
+    def image(self) -> ImageFile: ...
+    @property
+    def width(self) -> int:
+        """画像データの幅を返す"""
+
+    def get_width(self) -> int:
+        """画像データの幅を返す"""
+
+    @property
+    def height(self) -> int:
+        """画像データの高さを返す"""
+
+    def get_height(self) -> int:
+        """画像データの高さを返す"""
+
+    @property
+    def size(self) -> tuple[int, int]:
+        """画像データのサイズを返す"""
+
+    def get_size(self) -> tuple[int, int]:
+        """画像データのサイズを返す"""
+
+    @property
+    def format(self) -> str | None:
+        """ソースファイルのファイル形式を返す"""
+
+    def get_format(self) -> str | None:
+        """ソースファイルのファイル形式を返す"""
+
+    @property
+    def mode(self) -> str:
+        """
+        画像のモードを返す
+
+        参考:https://pillow.readthedocs.io/en/stable/handbook/concepts.html#concept-modes
+        """
+
+    def get_mode(self) -> str:
+        """
+        画像のモードを返す
+
+        参考:https://pillow.readthedocs.io/en/stable/handbook/concepts.html#concept-modes
+        """
+
+    def resize(self, w: int, h: int) -> Img_conversion: ...
+    def asresize(self) -> Img_conversion: ...
+    def show(self, title: str | None = None):
+        """
+        画像を表示させる
+
+        :param title: 画像を表示する際のタイトル名を指定する
+        :type title: str | None
+        """
+
+class Img_path(Img_conversion):
+    def __init__(self, path: Path): ...
+    @property
+    def path(self) -> Path: ...
+
+class Img_byte(Img_conversion):
+    def __init__(self, byte: bytes | BytesIO): ...
+    def __bytes__(self) -> bytes: ...
+    @property
+    def byte(self) -> bytes: ...
+    @property
+    def byteio(self) -> BytesIO: ...

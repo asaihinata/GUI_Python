@@ -1,0 +1,2 @@
+recursive-include src/sgg *.pyi
+include src/sgg/py.typed

@@ -1,0 +1,8 @@
+cycler
+matplotlib
+matplotlib_fontja
+numpy
+Pillow
+python-dateutil
+Requests
+validators

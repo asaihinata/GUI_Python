@@ -1,0 +1,47 @@
+import numpy as np
+
+from sgg import Eventpolar, guis
+
+rng = np.random.default_rng(seed=42)
+
+
+def test_main():
+
+    def updates():
+        radomdata = rng.gamma(4, size=(3, 50))
+        print(f"{radomdata=}")
+        eventpolar: Eventpolar = win.get("eventpolar")
+        eventpolar.update(data=radomdata)
+
+    eventdata = rng.gamma(4, size=(3, 50))
+    print(f"{eventdata=}")
+    layout = [
+        [
+            guis.Eventpolar(data=eventdata, title="極軸イベントグラフの基本"),
+            guis.Eventpolar(
+                data=eventdata, title="ラベルを付ける", label=["a", "b", "c"]
+            ),
+        ],
+        [
+            guis.Eventpolar(
+                data=eventdata, title="向きを指定する", orientation="horizontal"
+            ),
+            guis.Eventpolar(data=eventdata, title="線の種類を変更する", linestyle=":"),
+        ],
+        [
+            guis.Eventpolar(data=eventdata, title="線の幅を変更する", linelength=0.5),
+            guis.Eventpolar(data=eventdata, title="線の高さを変更する", linewidth=2),
+        ],
+        [
+            guis.Eventpolar(data=eventdata, title="グラフを更新する", key="eventpolar"),
+            guis.Buttons(text="更新ボタン", function=updates),
+        ],
+    ]
+    win = guis.window(
+        title="極軸イベントグラフ(test)", layout=layout, scroll=True, maxmine=True
+    )
+    win.run()
+
+
+if __name__ == "__main__":
+    test_main()

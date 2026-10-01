@@ -1,0 +1,55 @@
+import numpy as np
+
+from sgg import Barpolar, guis
+
+rng = np.random.default_rng(seed=42)
+
+
+def test_main():
+
+    def updates():
+        radomdata = rng.integers(30, 60, size=5)
+        print(f"{radomdata=}")
+        barpolar: Barpolar = win.get("Barpolar")
+        barpolar.update(y=radomdata)
+
+    barpolarx = np.linspace(0, np.pi * 2, 5)
+    barpolary = rng.integers(30, 60, size=5)
+    barpolardata = rng.integers(30, 60, size=5)
+    print(f"{barpolarx=}")
+    print(f"{barpolary=}")
+    print(f"{barpolardata=}")
+    layout = [
+        [
+            guis.Barpolar(x=barpolarx, y=barpolary, title="極軸棒グラフの基本1"),
+            guis.Barpolar(data=barpolardata, title="極軸棒グラフの基本2"),
+        ],
+        [
+            guis.Barpolar(
+                x=barpolarx,
+                y=barpolary,
+                align="edge",
+                title="極軸棒グラフの配置を変更する",
+            ),
+            guis.Barpolar(
+                x=barpolarx,
+                y=barpolary,
+                width=0.4,
+                title="極軸棒グラフのバーの幅を変更する",
+            ),
+        ],
+        [
+            guis.Barpolar(
+                x=barpolarx, y=barpolary, title="グラフを更新する", key="Barpolar"
+            ),
+            guis.Buttons(text="更新ボタン", function=updates),
+        ],
+    ]
+    win = guis.window(
+        title="極軸棒グラフ(test)", layout=layout, scroll=True, maxmine=True
+    )
+    win.run()
+
+
+if __name__ == "__main__":
+    test_main()

@@ -1,0 +1,42 @@
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+from sgg import guis
+
+
+def test_main():
+    data = pd.read_csv(
+        Path(__file__).parent / "data" / "school_test_demo_data.csv"
+    ).to_numpy()
+    layout = []
+    for i in range(6):
+        tabs = []
+        for j in range(0, 5):
+            datas = data[j + i * 5]
+            tabs.append(
+                [
+                    datas[0],
+                    [
+                        [
+                            guis.BarGraph(
+                                x=["国語", "社会", "数学", "理科"],
+                                y=datas[1::].astype(np.int64),
+                                title="教科別の点数",
+                                xlabel="教科名",
+                                ylabel="点数",
+                            )
+                        ]
+                    ],
+                ]
+            )
+        layout.append([guis.Tab(tabs=tabs)])
+    win = guis.window(
+        title="テストの結果(test)", layout=layout, scroll=True, maxmine=True
+    )
+    win.run()
+
+
+if __name__ == "__main__":
+    test_main()
